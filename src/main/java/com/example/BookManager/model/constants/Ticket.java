@@ -1,12 +1,12 @@
 package com.example.BookManager.model.constants;
 
 import java.util.Date;
-public class Cookie {
+public class Ticket {
     private int id;
 
     private int userId;
 
-    private String cookie;
+    private String ticket;
 
     private Date expiredAt;
 
@@ -26,12 +26,12 @@ public class Cookie {
 		this.userId = userId;
 	}
 
-	public String getCookie() {
-		return cookie;
+	public String getTicket() {
+		return ticket;
 	}
 
-	public void setCookie(String cookie) {
-		this.cookie = cookie;
+	public void setTicket(String ticket) {
+		this.ticket = ticket;
 	}
 
 	public Date getExpiredAt() {

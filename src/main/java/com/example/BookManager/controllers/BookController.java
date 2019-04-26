@@ -1,6 +1,8 @@
 package com.example.BookManager.controllers;
 
 import com.example.BookManager.model.constants.Book;
+import com.example.BookManager.model.constants.User;
+import com.example.BookManager.service.HostHolder;
 import com.example.BookManager.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,9 +15,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class BookController {
     @Autowired
     private BookService bookService;
+    @Autowired
+    private HostHolder hostHolder;
 
     @RequestMapping(path = {"/index"},method = {RequestMethod.GET})
     public String bookList(Model model){
+        User host = hostHolder.getUser();
+        if(host != null){
+            model.addAttribute("host",host);
+        }
         loadAllBooksView(model);
         return "book/books";
     }
